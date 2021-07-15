@@ -6,5 +6,9 @@ Domain Engineer or Domaineer is Semi-Auto Bot to gaining data from domains
 ```
 git clone https://github.com/EtcAug10/Domaineer
 cd Domaineer
+pip install -r req.txt
 python domaineer.py
 ```
+
+##### Working on
+Linux, Windows, Android (Use emulator such as Termux)
