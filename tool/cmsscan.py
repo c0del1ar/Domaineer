@@ -22,9 +22,9 @@ class CMS_Detector:
     meta_tests = {"Joomla":"/joomla/i","vBulletin":"/vBulletin/i","WordPress":"/wordPress/i","XOOPS":"/xoops/i","Plone":"/plone/i","MediaWiki":"/MediaWiki/i","CMSMadeSimple":"/CMS Made Simple/i","SilverStripe":"/SilverStripe/i","Movable Type":"/Movable Type/i","Amiro.CMS":"/Amiro/i","Koobi":"/koobi/i","bbPress":"/bbPress/i","DokuWiki":"/dokuWiki/i","TYPO3":"/TYPO3/i","PHP-Nuke":"/PHP-Nuke/i","DotNetNuke":"/DotNetNuke/i","Sitefinity":"/Sitefinity\s+(.*)/i","WebGUI":"/WebGUI/i","ez Publish":"/eZ\s*Publish/i","BIGACE":"/BIGACE/i","TypePad":"/typepad\.com/i","Blogger":"/blogger/i","PrestaShop":"/PrestaShop/i","SharePoint":"/SharePoint/","JaliosJCMS":"/Jalios JCMS/i","ZenCart":"/zen-cart/i","WPML":"/WPML/i","PivotX":"/PivotX/i","OpenACS":"/OpenACS/i","phpBB":"/phpBB/i","Serendipity":"/Serendipity/i","Avactis":"/Avactis Team/i"}
     meta_env = BeautifulSoup(self.data, 'html.parser').find_all("meta")
     
-    for link in meta_tests:
+    for env in meta_env:
     
-      for env in meta_env:
+      for link in meta_tests:
         regexp = re.compile(meta_tests[link])
         
         if re.findall(regexp,str(env)):
@@ -32,7 +32,7 @@ class CMS_Detector:
           
         else: pass
         
-    script_tests = {"Google Analytics":"\/google-analytics.com\/(ga|urchin).js\/i","Quantcast":"\/quantserve\.com\/quant\.js\/i","Prototype":"\/prototype\.js\/i","jQuery":"\/jquery[a-z.]*\.js\/i","Joomla":"\/\/components\/com_\/","Ubercart":"\/uc_cart\/i","Closure":"\/\/goog\/base\.js\/i","MODx":"\/\/min\/b=.*f=.*\/","MooTools":"\/mootools\/i","Dojo":"\/dojo(\.xd)?\.js\/i","script.aculo.us":"\/scriptaculous\.js\/i","Disqus":"\/disqus.com\/forums\/i","GetSatisfaction":"\/getsatisfaction\.com\/feedback\/i","Wibiya":"\/wibiya\.com\/Loaders\/\/i","reCaptcha":"\/api\.recaptcha\.net\/\/i","Mollom":"\/mollom\/mollom\.js\/i","ZenPhoto":"\/zp-core\/js\/i","Gallery2":"\/main\.php\?.*g2_.*\/i","AdSense":"\/pagead\/show_ads\.js\/","XenForo":"\/js\/xenforo\/\/i","Cappuccino":"\/Frameworks\/Objective-J\/Objective-J\.js\/","Avactis":"\/\/avactis-themes\/\/i","Volusion":"\/a\/j\/javascripts\.js\/","AddThis":"\/addthis\.com\/js\/","DataLife":"\/dle_root\/i","ExtJS":"\/ext[a-z.]*\.js\/i","Drupal":"\/Drupal\.settings\/i","MyBB":"\/jscripts\/general\.js\?ver=\/i","WordPress":"\/wp-content\/"}
+    script_tests = {"Blogger":"blogger.com\/","Google Analytics":"\/google-analytics.com\/(ga|urchin).js\/i","Quantcast":"\/quantserve\.com\/quant\.js\/i","Prototype":"\/prototype\.js\/i","jQuery":"\/jquery[a-z.]*\.js\/i","Joomla":"\/\/components\/com_\/","Ubercart":"\/uc_cart\/i","Closure":"\/\/goog\/base\.js\/i","MODx":"\/\/min\/b=.*f=.*\/","MooTools":"\/mootools\/i","Dojo":"\/dojo(\.xd)?\.js\/i","script.aculo.us":"\/scriptaculous\.js\/i","Disqus":"\/disqus.com\/forums\/i","GetSatisfaction":"\/getsatisfaction\.com\/feedback\/i","Wibiya":"\/wibiya\.com\/Loaders\/\/i","reCaptcha":"\/api\.recaptcha\.net\/\/i","Mollom":"\/mollom\/mollom\.js\/i","ZenPhoto":"\/zp-core\/js\/i","Gallery2":"\/main\.php\?.*g2_.*\/i","AdSense":"\/pagead\/show_ads\.js\/","XenForo":"\/js\/xenforo\/\/i","Cappuccino":"\/Frameworks\/Objective-J\/Objective-J\.js\/","Avactis":"\/\/avactis-themes\/\/i","Volusion":"\/a\/j\/javascripts\.js\/","AddThis":"\/addthis\.com\/js\/","DataLife":"\/dle_root\/i","ExtJS":"\/ext[a-z.]*\.js\/i","Drupal":"\/Drupal\.settings\/i","MyBB":"\/jscripts\/general\.js\?ver=\/i","WordPress":"\/wp-content\/"}
     script_env = BeautifulSoup(self.data, 'html.parser').find_all("script")
     
     for env in script_env:
