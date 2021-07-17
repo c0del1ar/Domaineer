@@ -8,6 +8,7 @@
 from bs4 import BeautifulSoup
 import re
 
+__version__ = "1.0"
 
 class CMS_Detector:
   
