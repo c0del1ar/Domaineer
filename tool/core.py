@@ -311,7 +311,7 @@ def cmsscanner(sites=[]):
             data_result = {}
             
           data_result[web] = result.app[0]
-          open("cmssanlist.json","a").write(json.dumps(data_result))
+          open("cmsscanlist.json","w").write(json.dumps(data_result))
           
         else: print(f"{Color.red}{prefix}x It is not using any CMS{Color.default}")
           
