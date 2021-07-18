@@ -12,7 +12,7 @@ from time import sleep
 import json
 from requests import get
 from config import *
-
+from random import shuffle
 
 
 def grabber(server=""):
@@ -333,3 +333,41 @@ def cmsscanner(sites=[]):
         
     print(f"{prefix}@ Starting with basic scan")
     cmsscanner(sites=sites)
+    
+    
+def gdorker(search_query="",useragents=[]):
+  import tool.gse as gdork
+  
+  if search_query != "":
+    
+    if useragents != []:
+      shuffle(useragents)
+      req = gdork.dorking(search_query,useragents)
+      
+    else:
+      req = gdork.dorking(search_query)
+      
+    for res in req:
+      open("gselist.txt","a").write(res+"\n")
+      
+    if len(req) == 0:  print(f"{Color.red}{prefix}x Sorry, this might be my fault. You get nothing..{Color.default}")
+    
+    elif len(req) < 10:  print(f"{Color.green}{prefix} Sis You only get {len(req)}. Have a nice day..{Color.default}")
+      
+    else: print(f"{Color.green}{prefix}i Success, take {len(req)} results from this query.{Color.default}")
+    
+    quit(f"{prefix}@ Done it, saved in dorklist.txt")
+    
+  else:
+    print(f"{Color.yellow}{prefix}i Info.\n{gdork.__about__}{Color.default}")
+    
+    try:
+      search_query = input(f"{Color.blue}{prefix}? Your search query : {Color.default}")
+      uagent = input(f"{Color.blue}{prefix}? Want to use User Agent incognito mode? (y/n): {Color.default}")
+      
+      if uagent.lower() == "y": gdorker(search_query=search_query,useragents=open("ua.txt","r").splitlines())
+        
+      else: gdorker(search_query=search_query)
+      
+    except KeyboardInterrupt:
+      exit()

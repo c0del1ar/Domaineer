@@ -42,6 +42,9 @@ if __name__ == '__main__':
     elif choices == "3":
       cmsscanner()
       
+    elif choices == "4":
+      gdorker()
+      
     else: 
       print(f"{Color.red}{prefix}x Not found your choosen tool{Color.default}")
       choose_a_tool = False

@@ -16,7 +16,7 @@ class Color:
   white = "\033[37;1m"
   default = "\033[37;0m"
   
-_version_ = "1.3.5"
+_version_ = "1.3.6"
 _author_ = "EtcAug10"
 _name_ = "Domaineer"
 
@@ -50,4 +50,4 @@ prefix = "\u2699"
 
 about = ["Domain Engineer or called as Domaineer is a tool to extract or dump any datas of domains in hole net lines.\n\nWhen you use this tool, It means you are accepting all of the Terms and Conditions in Ethical Hacker's guide book. Hope you've read it.","This bot helps you in doing penetration testing, learning the ins and outs of domains, analyzing objects, even doing stupid things like hacking your own domain and showing it off in front of your friends.","A wide variety of hacking tools are here, use them with great care. Don't worry, there is no backdoor logger here. The bot will continue to be updated if bugs and changes are found to improve the quality of the bot and update exploits"]
 
-tool_choices = ["Grab Sites","Reverse IP","CMS Scanner"]
+tool_choices = ["Grab Sites","Reverse IP","CMS Scanner","Google SE"]
