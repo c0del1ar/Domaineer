@@ -342,7 +342,7 @@ def gdorker(search_query="",useragents=[]):
     
     if useragents != []:
       shuffle(useragents)
-      req = gdork.dorking(search_query,useragents)
+      req = gdork.dorking(search_query,useragents[0])
       
     else:
       req = gdork.dorking(search_query)
@@ -365,7 +365,7 @@ def gdorker(search_query="",useragents=[]):
       search_query = input(f"{Color.blue}{prefix}? Your search query : {Color.default}")
       uagent = input(f"{Color.blue}{prefix}? Want to use User Agent incognito mode? (y/n): {Color.default}")
       
-      if uagent.lower() == "y": gdorker(search_query=search_query,useragents=open("ua.txt","r").splitlines())
+      if uagent.lower() == "y": gdorker(search_query=search_query,useragents=open("ua.txt","r").read().splitlines())
         
       else: gdorker(search_query=search_query)
       
