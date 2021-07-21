@@ -16,7 +16,7 @@ class Color:
   white = "\033[37;1m"
   default = "\033[37;0m"
   
-_version_ = "1.3.6"
+_version_ = "1.3.6.1"
 _author_ = "EtcAug10"
 _name_ = "Domaineer"
 

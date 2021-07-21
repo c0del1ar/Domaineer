@@ -356,7 +356,7 @@ def gdorker(search_query="",useragents=[]):
       
     else: print(f"{Color.green}{prefix}i Success, take {len(req)} results from this query.{Color.default}")
     
-    quit(f"{prefix}@ Done it, saved in dorklist.txt")
+    print(f"{prefix}@ Done it, saved in dorklist.txt")
     
   else:
     print(f"{Color.yellow}{prefix}i Info.\n{gdork.__about__}{Color.default}")
