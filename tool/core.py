@@ -177,10 +177,10 @@ def grabber(server=""):
   
 
 def reverseip(server="",ip_addr=[],useragent=""):
-  import tool.reverseip as reverseip
+  import tool.reverseip as revip
   
   if server == "1":
-    reversing = reverseip.OsintSH()
+    reversing = revip.OsintSH()
     print(f"{prefix}@ Start using service 1")
     
     try:
@@ -203,7 +203,7 @@ def reverseip(server="",ip_addr=[],useragent=""):
       print(f"{prefix} Cancelling..")
       
   elif server == "2":
-    reversing = reverseip.SonarOmnisintIO()
+    reversing = revip.SonarOmnisintIO()
     print(f"{prefix}@ Start using service 2")
     
     try:
@@ -226,7 +226,7 @@ def reverseip(server="",ip_addr=[],useragent=""):
       print(f"{prefix} Cancelling..")
       
   else:
-    print(f"\n{reverseip.__about__}")
+    print(f"\n{revip.__about__}")
     inputting = False
     
     while inputting == False:
@@ -242,8 +242,8 @@ def reverseip(server="",ip_addr=[],useragent=""):
     
     if check == 1:
       print(f"{prefix}i Checking connection availability in service 1")
-      conn = reverseip.OsintSH()
-      conn.get(ips[0])
+      conn = revip.OsintSH()
+      conn.get_data(ips[0])
       
       if len(conn.dump()) != 0:
         reverseip("1",ips)
@@ -252,7 +252,7 @@ def reverseip(server="",ip_addr=[],useragent=""):
           
     if check == 2:
       print(f"{prefix}i Checking connection availability in service 1")
-      conn = reverseip.SonarOmnisintIO()
+      conn = revip.SonarOmnisintIO()
       conn.get(ips[0])
       
       if len(conn.dump()) != 0:
