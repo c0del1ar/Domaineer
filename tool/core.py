@@ -251,14 +251,21 @@ def reverseip(server="",ip_addr=[],useragent=""):
       else: check = 2
           
     if check == 2:
-      print(f"{prefix}i Checking connection availability in service 1")
+      print(f"{prefix}i Checking connection availability in service 2")
       conn = revip.SonarOmnisintIO()
       conn.get(ips[0])
       
-      if len(conn.dump()) != 0:
-        reverseip("2",ips)
+      try:
+        
+        if len(conn.dump()) != 0:
+          reverseip("2",ips)
       
-      else: pass
+        else: check = 3
+        
+      except: check = 3
+      
+    if check == 3:
+      print(f"{Color.red}{prefix}x Servers is busy"{Color.default}")
       
 
 def cmsscanner(sites=[]):
