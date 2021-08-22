@@ -265,7 +265,7 @@ def reverseip(server="",ip_addr=[],useragent=""):
       except: check = 3
       
     if check == 3:
-      print(f"{Color.red}{prefix}x Servers is busy"{Color.default}")
+      print(f"{Color.red}{prefix}x Servers is busy{Color.default}")
       
 
 def cmsscanner(sites=[]):
@@ -378,3 +378,32 @@ def gdorker(search_query="",useragents=[]):
       
     except KeyboardInterrupt:
       exit()
+      
+def fuzzing():
+  import tool.urlfuzzer as fuzzer
+
+  print(f"{Color.yellow}{prefix}i Info tool.\n{fuzzer.__about__}{Color.default}")
+  target = input(f"{Color.blue}{prefix}? Input URL: {Color.default}")
+  
+  if "https" in target or "://" in target:
+    pass
+  else:
+    target = "https://"+target
+  
+  print(f"{prefix}i If you want to print only status code(s) you want it, Type it (Separate with commas). Else, then empty it.")
+  sc = input(f"{Color.blue}{prefix}? Input Status Code: {Color.default}").split(",")
+  pathsrc = ""
+  
+  while pathsrc == "":
+    pathsrc = input(f"{Color.blue}{prefix}? Input wordlist: {Color.default}")
+    if open(pathsrc,'r').read():
+      pass
+    else:
+      print(f"{Color.red}{prefix}x I found nothing on your file{Color.default}")
+      pathsrc = ""
+      
+  fz = fuzzer.Fuzz(target)
+  fz.getpath(fuzzer.makepath(pathsrc))
+  fz.setcodes(sc)
+  fz.search()
+  print(f"{prefix}! Total request(s): {len(fz.paths)}, Total Found: {Color.green}{len(fz.pathfound)}{Color.default}, Not Found: {Color.red}{len(fz.pathnotfound)}{Color.default}")

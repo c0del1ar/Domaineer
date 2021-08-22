@@ -52,6 +52,9 @@ class Main():
       elif choices == "4":
         gdorker()
         
+      elif choices == "5":
+        fuzzing()
+        
       else: 
         print(f"{Color.red}{prefix}x Not found your choosen tool{Color.default}")
         choose_a_tool = False
