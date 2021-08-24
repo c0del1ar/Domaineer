@@ -9,7 +9,7 @@
 from re import findall
 from datetime import date,timedelta
 from time import sleep
-import json
+import json, socket
 from requests import get
 from config import *
 from random import shuffle
@@ -186,7 +186,7 @@ def reverseip(server="",ip_addr=[],useragent=""):
     try:
       
       for ip in ip_addr:
-        reversing.get_data(ip,useragent)
+        reversing.get_data(socket.gethostbyname(ip),useragent)
         result = reversing.dump()
         
         for res in result:
@@ -209,7 +209,7 @@ def reverseip(server="",ip_addr=[],useragent=""):
     try:
       
       for ip in ip_addr:
-        reversing.get(ip)
+        reversing.get(socket.gethostbyname(ip))
         result = reversing.dump()
         
         for res in result:
@@ -355,7 +355,7 @@ def gdorker(search_query="",useragents=[]):
       req = gdork.dorking(search_query)
       
     for res in req:
-      open("gselist.txt","a").write(res+"\n")
+      open("dorklist.txt","a").write(res+"\n")
       
     if len(req) == 0:  print(f"{Color.red}{prefix}x Sorry, this might be my fault. You get nothing..{Color.default}")
     
