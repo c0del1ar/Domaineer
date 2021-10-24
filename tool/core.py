@@ -13,6 +13,7 @@ import json, socket
 from requests import get
 from config import *
 from random import shuffle
+from tqdm import tqdm
 
 
 def grabber(server=""):
@@ -71,7 +72,7 @@ def grabber(server=""):
           sleep(0.5)
           totalresult = []
           
-          for page in range(1,(totalpage+1)):
+          for page in tqdm(range(1,(totalpage+1)),f"{prefix} Grabbbing"):
             result = _exec.dump(datedump,str(page),extension)
             
             for res in result:
@@ -143,13 +144,12 @@ def grabber(server=""):
     print(f"{Color.green}Great! Let's take the datas{Color.default}")
     pagef = grab.count_pages()
     
-    for homepage in range(1,(pagef+1)):
+    for homepage in tqdm(range(1,(pagef+1)),f"{prefix}Load page"):
       pagel = grab.count_pages(str(homepage))
       print(f"{prefix}Getting total of {str(pagel)} pages including datas in page {str(homepage)}.")
-      
-      for datapage in range(0,pagel):
+    
+      for datapage in tqdm(range(0,pagel),f"{prefix} Grabbing"):
         datares = grab.dump_site(str(homepage),str(datapage))
-        print(f"{Color.green}{prefix}@ Taking {len(datares)} data results{Color.default}")
         
         for domain in datares:
           open("grablist.txt","a").write(domain+"\n")
