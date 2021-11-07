@@ -1,11 +1,11 @@
 # Domaineer
 Domain Engineer or Domaineer is Semi-Auto Bot to gaining data from domains
 
-![Image of Screenshot](https://raw.githubusercontent.com/EtcAug10/Domaineer/main/preview-domaineer1361.jpg)
+![Image of Screenshot](https://raw.githubusercontent.com/c0del1ar/Domaineer/main/preview-domaineer1361.jpg)
 
 ##### How to Install?
 ```
-git clone https://github.com/EtcAug10/Domaineer
+git clone https://github.com/c0del1ar/Domaineer
 cd Domaineer
 pip install -r req.txt
 python domaineer.py
