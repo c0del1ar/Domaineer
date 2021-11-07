@@ -407,3 +407,23 @@ def fuzzing():
   fz.setcodes(sc)
   fz.search()
   print(f"{prefix}! Total request(s): {len(fz.paths)}, Total Found: {Color.green}{len(fz.pathfound)}{Color.default}, Not Found: {Color.red}{len(fz.pathnotfound)}{Color.default}")
+
+def domainip(domain=""):
+    import tool.reverseip as revip
+    
+    if domain == "":
+        choose = False
+        while choose == False:
+            dom = input(f"{Color.blue}{prefix}? Input file: {Color.default}")
+            try:
+                data = open(dom).read().splitlines()
+                choose = True
+            except:
+                print(f"{Color.red}{prefix}! Error, file not found!")
+        domainip(data)
+
+    else:
+        for x in tqdm(domain,f"{prefix} Loads"):
+            open("domainip.txt","a").write(revip.domain_to_ip(x)+"\n")
+
+        print(f"{prefix} Done it! saved to domainip.txt")

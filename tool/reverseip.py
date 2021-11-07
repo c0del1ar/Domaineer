@@ -8,12 +8,12 @@
 
 """
   You can get this library tool in
-  https://github.com/EtcAug10/ReverseIP
+  https://github.com/c0del1ar/ReverseIP
 """
 
 from requests import Session,post,get
 from re import match,findall
-import json
+import json, socket
 
 __version__ = "1.0.7"
 __name__ = "Reverse Ip Library"
@@ -55,3 +55,7 @@ class SonarOmnisintIO:
   def dump(self):
     req = get(self.url+self.ip,headers=self.headers).text
     return json.loads(req)
+
+
+def domain_to_ip(domain):
+    return socket.gethostbyname(domain)

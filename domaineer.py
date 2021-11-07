@@ -54,6 +54,9 @@ class Main():
         
       elif choices == "5":
         fuzzing()
+
+      elif choices == "6":
+          domainip()
         
       else: 
         print(f"{Color.red}{prefix}x Not found your choosen tool{Color.default}")
