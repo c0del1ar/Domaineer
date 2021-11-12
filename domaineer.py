@@ -2,7 +2,7 @@
 
 """ 
   Copyright (C) 2021 Semi-Auto bot tool 
-  made by EtcAug10 a.k.a Arya Kresna and it is licensed
+  made by c0del1ar a.k.a Arya Kresna and it is licensed
 """
 
 
@@ -40,27 +40,16 @@ class Main():
       except KeyboardInterrupt:
         quit(f"{Color.green}---_ Happy hacking 😎 _---{Color.default}")
         
-      if choices == "1":
-        grabber()
-        
-      elif choices == "2":
-        reverseip()
-        
-      elif choices == "3":
-        cmsscanner()
-        
-      elif choices == "4":
-        gdorker()
-        
-      elif choices == "5":
-        fuzzing()
-
-      elif choices == "6":
-          domainip()
-        
-      else: 
-        print(f"{Color.red}{prefix}x Not found your choosen tool{Color.default}")
-        choose_a_tool = False
+      match choices:
+        case "1": grabber()
+        case "2": reverseip()
+        case "3": cmsscanner()
+        case "4": gdorker()
+        case "5": fuzzing()
+        case "6": domainip()
+        case _: 
+            print(f"{Color.red}{prefix}x Not found your choosen tool{Color.default}")
+            choose_a_tool = False
 
 
 

@@ -2,7 +2,7 @@
 
 """ 
   Copyright (C) 2021 Semi-Auto bot tool 
-  made by EtcAug10 a.k.a Arya Kresna and it is licensed
+  made by c0del1ar a.k.a Arya Kresna and it is licensed
 """
 
 class Color:
@@ -16,7 +16,7 @@ class Color:
   white = "\033[37;1m"
   default = "\033[37;0m"
   
-_version_ = "1.3.6.3"
+_version_ = "1.3.6.4"
 _author_ = "c0del1ar"
 _name_ = "Domaineer"
 
@@ -24,7 +24,7 @@ banner = ["""
         {}##
      ###
    ##    {}#####        {}Domaineer
-   ##    {}#   ###      {}by EtcAug10         |
+   ##    {}#   ###      {}by c0del1ar         |
    ##    {}#     #####  {}Version {}{}      |
      ###          {}##{}                      |
         #######   {}##{}  This FREE tool is   |
@@ -36,7 +36,7 @@ banner = ["""
     #############
     ###         ###
     ###           ###     {}Domain Engineer
-    {}###       {}##{}   ##     {}by EtcAug10
+    {}###       {}##{}   ##     {}by c0del1ar
 ##  {}###     {}##      {}#
  {}## {}###   {}##       {}##
   {}## {}## {}##        {}###     {}v{}
