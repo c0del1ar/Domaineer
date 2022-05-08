@@ -29,8 +29,24 @@ def grabber(server=""):
       sleep(0.005)
       
     print(Color.default)
-    fromdate = grab.inputdate("From")
-    untildate = grab.inputdate("Until")
+    date_input = False
+    while date_input == False:
+        fromdate = grab.inputdate("From")
+        untildate = grab.inputdate("Until")
+        try:
+            start_date = date(int(fromdate[2]),int(grab.monthstrtoint(fromdate[1])),int(fromdate[0]))
+            end_date = date(int(untildate[2]),int(grab.monthstrtoint(untildate[1])),int(untildate[0]))
+            delta = timedelta(days=1)
+            date_input = True
+        except Exception:
+            print(f"{Color.red}{prefix}x Error, please input date again{Color.default}")
+            date_input = False
+        except ValueError:
+            print(f"{Color.red}{prefix}x Date not found{Color.default}")
+            date_input = False
+        except KeyboardInterrupt:
+            print(f"{prefix} Cancelling..")
+
     extension = []
     forext = False
     
@@ -51,9 +67,6 @@ def grabber(server=""):
       print(f"{prefix}i Separate with space")
       extension,targeting = (input(f"{Color.blue}{prefix}? Which Extension? (example: .com .go.us): {Color.default}").split(" "), False)
     
-    start_date = date(int(fromdate[2]),int(grab.monthstrtoint(fromdate[1])),int(fromdate[0]))
-    end_date = date(int(untildate[2]),int(grab.monthstrtoint(untildate[1])),int(untildate[0]))
-    delta = timedelta(days=1)
     print(f"{prefix}i Getting Result..")
     _exec = grab.Service1()
     
