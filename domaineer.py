@@ -54,9 +54,8 @@ class Main():
 
 
 if __name__ == '__main__':
-  mainmenu = True
   
-  while mainmenu == True:
+  while True:
     Main()
     mainback = input(f"{Color.blue}{prefix}?Do you want to go back to Main Menu? (y/n) : {Color.default}")
     
