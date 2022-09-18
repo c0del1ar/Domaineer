@@ -14,6 +14,10 @@ from lib.core.exception import (
     DateFormatError,
     DateLenghtError
     )
+from lib.core.settings import BANNER, ABOUT
+
+def banner():
+    writeLn("", BANNER + ABOUT)
 
 def Switch(list_opt: dict, option: str):
     try:
@@ -25,16 +29,18 @@ def Switch(list_opt: dict, option: str):
     except UserFailedInput:
         return False
 
-def writeLn(param: str, text_out: str):
-    p_txt = Switch({
-        "i" : ('INFO', Fore.GREEN),
-        "w" : ('WARN', Fore.YELLOW),
-        "e" : ('ERROR', Fore.RED)
-    }, param)
-
-    print("[ %s%s%s ] %s•%s %s" %
-                 (p_txt[1],p_txt[0],Fore.RESET,p_txt[1],Fore.RESET,text_out)
-        )
+def writeLn(param : str, text_out: str):
+    if param == "":
+        print(text_out)
+    else:
+        p_txt,c_txt = Switch({
+            "i" : ('INFO', Fore.GREEN),
+            "w" : ('WARN', Fore.YELLOW),
+            "e" : ('ERROR', Fore.RED)
+        }, param)
+        print("\r[ %s%s%s ] %s•%s %s" %
+              (c_txt,p_txt,Fore.RESET,c_txt,Fore.RESET,text_out)
+              )
 
 def readLn(text: str):
     text_put = input("[ %sQUEST%s ] %s•%s %s " % (Fore.BLUE,Fore.RESET,Fore.BLUE,Fore.RESET,text))

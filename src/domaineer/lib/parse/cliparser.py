@@ -65,8 +65,6 @@ import re
 
 from lib.core.common import writeLn
 from lib.core.settings import (
-    BANNER,
-    ABOUT,
     VERSION,
     IS_WIN,
     MAX_HELP_OPTION_LENGTH,
@@ -77,7 +75,6 @@ def ArgParser(argv=None):
         argv = sys.argv
     _ = os.path.basename(argv[0])
 
-    desc = "%s\n%s" % (BANNER[0], ABOUT[0])
     usage = "%s%s [options]" % (
         "%s " % os.path.basename(sys.executable)
         if not IS_WIN else "",
@@ -186,7 +183,6 @@ def ArgParser(argv=None):
                 raise SystemExit
 
         if len(argv) == 1:
-            print(desc)
             parser.print_usage()
             raise SystemExit
 
@@ -200,6 +196,7 @@ def ArgParser(argv=None):
             raise SystemExit
         except SystemExit:
             if "-h" in argv and not advancedHelp:
+                writeLn("","")
                 writeLn("i", "To see full list of options run with '-hh'\n")
             raise
 

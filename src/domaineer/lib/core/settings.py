@@ -7,8 +7,8 @@ Semi-Auto Exploitation tool by Arya Kresna
 
 import os
 import sys
-from random import shuffle
-from colorama import Fore
+import random
+from colorama import init, Fore
 
 # about app
 AUTHOR = "Arya Kresna"
@@ -22,7 +22,9 @@ WEBSHELL_LIST = ABS_PATH + "/webshell"
 WORDLIST = ABS_PATH + "/wordlists"
 
 # about app
-BANNER = ["""
+init()
+BANNER = random.choice(
+    ["""
         %s##
      ###
    ##    %s#####        %s%s
@@ -92,8 +94,10 @@ BANNER = ["""
        Fore.GREEN,
        Fore.RESET)
     ]
+)
 
-ABOUT = ["""Domain Engineer or called as Domaineer is a tool to extract or dump any datas
+ABOUT = random.choice(
+    ["""Domain Engineer or called as Domaineer is a tool to extract or dump any datas
 of domains in hole net lines.
 When you use this tool, It means you are accepting all of the
 Terms and Conditions in Ethical Hacker's guide book. Hope you've read it.""",
@@ -105,9 +109,7 @@ there is no backdoor logger here.
 The bot will continue to be updated if bugs and changes are found to improve the quality of the bot
 and update exploits"""
     ]
-
-shuffle(BANNER)
-shuffle(ABOUT)
+)
 
 # platform used
 PLATFORM = os.name
@@ -118,7 +120,7 @@ IS_WIN = PLATFORM == "nt"
 UNICODE_ENCODING = "utf8"
 
 # Maximum length of a help part containing switch/option name(s)
-MAX_HELP_OPTION_LENGTH = 18
+MAX_HELP_OPTION_LENGTH = 30
 
 # Basic help options
 BASIC_HELPS = [
@@ -126,3 +128,17 @@ BASIC_HELPS = [
     "file_inp",
     "cli_based",
   ]
+
+# Tool list
+TOOL_COUNT = 6
+TOOL_LIST = {
+    "name" : ["Grabber", "Reverse IP",
+              "CMS Scan", "Fuzzer",
+              "Search Engine", "Domain to IP"
+              ],
+    "argument" : ["", "reverse-ip",
+                  "cms-scan", "fuzz",
+                  "search", "domainip"
+                  ],
+    "status" : [1,1,1,1,0,1]
+}

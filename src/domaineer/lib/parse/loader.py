@@ -4,7 +4,7 @@ from threading import Thread
 from time import sleep
 
 
-class Loader:
+class Loader1:
     def __init__(self, desc="Loading...", end="Done!", timeout=0.1):
         """
         A loader-like context manager
