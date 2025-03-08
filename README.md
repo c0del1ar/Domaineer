@@ -13,3 +13,6 @@ python domaineer.py
 
 ##### Working on
 Linux, Windows, Android (Use emulator such as Termux)
+
+### Undergoing Maintenance
+This tool is ongoing to upgrading to desktop app using pyQT and golang as for library tools.
