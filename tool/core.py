@@ -49,6 +49,7 @@ def grabber(server=""):
 
     extension = []
     forext = False
+    totalresult = []
     
     while forext == False:
       forext = input(f"{Color.blue}{prefix}? Interesting to targetting extension? (Y/n): {Color.default}")
@@ -83,7 +84,6 @@ def grabber(server=""):
           sleep(0.5)
           print(f"{prefix} Dumping all of them..")
           sleep(0.5)
-          totalresult = []
           
           for page in tqdm(range(1,(totalpage+1)),f"{prefix} Grabbbing"):
             result = _exec.dump(datedump,str(page),extension)
